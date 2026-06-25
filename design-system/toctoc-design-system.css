@@ -1,0 +1,808 @@
+/* ============================================================
+   TOCTOC Design System — v1.0
+   Fuente de verdad visual para todos los proyectos TOCTOC.
+   Extraído de Figma "TT Design MD2" (Base page).
+   ============================================================ */
+
+/* ---------- Web Fonts (Nunito) ----------
+   Requiere que los archivos .ttf estén en ./fonts/ relativo a este archivo.
+   Si usas Google Fonts en su lugar:
+   @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..900;1,200..900&display=swap');
+*/
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 200; font-display: swap; src: url("../fonts/Nunito-ExtraLight.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: italic; font-weight: 200; font-display: swap; src: url("../fonts/Nunito-ExtraLightItalic.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 300; font-display: swap; src: url("../fonts/Nunito-Light.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: italic; font-weight: 300; font-display: swap; src: url("../fonts/Nunito-LightItalic.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/Nunito-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/Nunito-Italic.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/Nunito-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: italic; font-weight: 500; font-display: swap; src: url("../fonts/Nunito-MediumItalic.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/Nunito-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: italic; font-weight: 600; font-display: swap; src: url("../fonts/Nunito-SemiBoldItalic.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/Nunito-Bold.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: italic; font-weight: 700; font-display: swap; src: url("../fonts/Nunito-BoldItalic.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 800; font-display: swap; src: url("../fonts/Nunito-ExtraBold.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: italic; font-weight: 800; font-display: swap; src: url("../fonts/Nunito-ExtraBoldItalic.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 900; font-display: swap; src: url("../fonts/Nunito-Black.ttf") format("truetype"); }
+@font-face { font-family: "Nunito"; font-style: italic; font-weight: 900; font-display: swap; src: url("../fonts/Nunito-BlackItalic.ttf") format("truetype"); }
+
+
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+
+  /* ---- Colores de marca ---- */
+  --tt-indigo:           rgb(50, 0, 193);    /* primario — 1.521 usos en Figma */
+  --tt-indigo-dark:      rgb(36, 1, 138);    /* hover / pressed */
+  --tt-indigo-darker:    rgb(23, 0, 87);     /* footer body */
+  --tt-indigo-deep:      rgb(34, 17, 96);    /* tinta profunda, ilustraciones */
+  --tt-mint:             rgb(55, 255, 219);  /* CTA "Publicar" — el único botón no-índigo */
+  --tt-mint-dark:        rgb(36, 230, 195);  /* mint pressed */
+  --tt-pink:             rgb(240, 92, 137);  /* corazón / íconos persona */
+  --tt-pink-dark:        rgb(64, 28, 62);    /* tinta pink profunda */
+
+  /* ---- Escala índigo (tints) ---- */
+  --tt-indigo-50:        rgb(234, 242, 252);
+  --tt-indigo-75:        rgb(215, 233, 255);
+  --tt-indigo-100:       rgb(216, 231, 255);
+  --tt-indigo-150:       rgb(203, 219, 246);
+  --tt-indigo-200:       rgb(178, 208, 255);
+  --tt-indigo-250:       rgb(184, 210, 255);
+  --tt-indigo-300:       rgb(161, 188, 230);
+  --tt-indigo-400:       rgb(133, 147, 229);
+  --tt-indigo-500:       rgb(104, 128, 228);
+  --tt-indigo-600:       rgb(101, 121, 209);
+  --tt-indigo-700:       rgb(50, 0, 193);    /* = --tt-indigo */
+  --tt-indigo-800:       rgb(36, 1, 138);
+  --tt-indigo-900:       rgb(34, 17, 96);
+
+  /* ---- Neutrales ---- */
+  --tt-white:            rgb(255, 255, 255);
+  --tt-bg:               rgb(249, 249, 249); /* fondo de app — NO es blanco puro */
+  --tt-surface:          rgb(255, 255, 255); /* superficie de tarjetas */
+  --tt-surface-alt:      rgb(244, 244, 244); /* filas alternadas, hover sutil */
+  --tt-divider:          rgb(229, 229, 229);
+  --tt-line:             rgb(217, 217, 217);
+  --tt-muted:            rgb(200, 200, 200);
+  --tt-mid:              rgb(177, 177, 177);
+  --tt-ink-3:            rgb(102, 102, 102); /* texto terciario / breadcrumbs */
+  --tt-ink-2:            rgb(57, 61, 66);    /* texto de cuerpo */
+  --tt-ink:              rgb(52, 58, 64);    /* texto primario */
+  --tt-black:            rgb(38, 50, 56);    /* paneles de tinta profunda */
+
+  /* ---- Colores semánticos ---- */
+  --tt-success:          rgb(35, 173, 99);
+  --tt-warning:          rgb(255, 167, 38);
+  --tt-danger:           rgb(244, 67, 54);
+  --tt-info:             var(--tt-indigo);
+  --tt-star:             rgb(255, 200, 0);   /* estrellas de rating */
+
+  /* ---- Alias (foreground / background) ---- */
+  --fg-1:                var(--tt-ink);
+  --fg-2:                var(--tt-ink-2);
+  --fg-3:                var(--tt-ink-3);
+  --fg-on-indigo:        var(--tt-white);
+  --fg-on-mint:          var(--tt-indigo);
+  --bg-app:              var(--tt-bg);
+  --bg-surface:          var(--tt-surface);
+  --bg-strip:            var(--tt-surface-alt);
+  --bg-indigo:           var(--tt-indigo);
+  --bg-indigo-tint:      var(--tt-indigo-50);
+  --accent:              var(--tt-indigo);
+  --accent-cta:          var(--tt-mint);
+
+  /* ---- Tipografía ---- */
+  --font-sans:           "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:           "Roboto Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --fw-light:            300;
+  --fw-regular:          400;
+  --fw-medium:           500;
+  --fw-semibold:         600;
+  --fw-bold:             700;
+  --fw-extrabold:        800;
+
+  /* Escala tipográfica (valores del análisis de frecuencia del Figma) */
+  --fs-12:               12px;  /* meta / breadcrumbs */
+  --fs-14:               14px;  /* body base / campos / nav */
+  --fs-16:               16px;  /* body grande / botones */
+  --fs-18:               18px;  /* header de sección */
+  --fs-20:               20px;  /* eyebrow / body large */
+  --fs-24:               24px;  /* sub-display */
+  --fs-30:               30px;  /* título de página (mobile) */
+  --fs-32:               32px;  /* título de página (desktop) */
+  --fs-50:               50px;  /* número hero */
+  --fs-64:               64px;  /* display hero */
+
+  /* Line heights */
+  --lh-tight:            1.1;
+  --lh-snug:             1.17;  /* ExtraBold display */
+  --lh-normal:           1.5;   /* body por defecto */
+  --lh-flat:             1;     /* etiquetas numéricas densas */
+
+  /* ---- Escala de espaciado ---- */
+  --sp-2:                2px;
+  --sp-4:                4px;
+  --sp-8:                8px;
+  --sp-12:               12px;
+  --sp-16:               16px;
+  --sp-20:               20px;
+  --sp-24:               24px;
+  --sp-32:               32px;
+  --sp-40:               40px;
+  --sp-48:               48px;
+  --sp-64:               64px;
+  --sp-80:               80px;
+
+  /* ---- Radios de borde ---- */
+  /* Solo existen 4px (botones/chips/inputs) y 10px (cards/hero) en el sistema */
+  --r-2:                 2px;
+  --r-4:                 4px;   /* botones, chips, inputs pequeños */
+  --r-8:                 8px;   /* cards anidadas */
+  --r-10:                10px;  /* property cards, hero cards, modales */
+  --r-pill:              999px; /* avatares, pills */
+
+  /* ---- Sombras / elevación ---- */
+  --shadow-header:       0px 2px 4px 0px rgba(0, 0, 0, 0.05);
+  --shadow-dropdown:     0px 4px 14px 0px rgba(112, 144, 176, 0.10);
+  --shadow-card:         0px 4px 12px 0px rgba(34, 17, 96, 0.06);
+  --shadow-card-hover:   0px 8px 24px 0px rgba(34, 17, 96, 0.10);
+  --shadow-text-protect: 0px 0px 8px rgba(0, 0, 0, 0.65); /* texto hero sobre fotos */
+
+  /* ---- Bordes ---- */
+  --border-line:         1px solid var(--tt-divider);
+  --border-line-soft:    1px solid var(--tt-surface-alt);
+
+  /* ---- Motion ---- */
+  --ease-standard:       cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasis:       cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-quick:           120ms;
+  --dur-base:            180ms;
+  --dur-slow:            260ms;
+
+  /* ---- Layout ---- */
+  --container-max:       1260px; /* columna de contenido dentro de 1440px con gutters de 90px */
+  --header-h:            64px;
+  --secondary-nav-h:     58px;
+}
+
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-14);
+  line-height: var(--lh-normal);
+  color: var(--fg-1);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+}
+
+
+/* ============================================================
+   TIPOGRAFÍA
+   ============================================================ */
+
+/* --- Display --- */
+.tt-display-xl {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-64);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.02em;
+  color: var(--fg-1);
+}
+.tt-display-lg {
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-50);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.015em;
+  color: var(--tt-indigo);
+}
+
+/* --- Encabezados --- */
+.tt-h1, h1 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-32);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+  margin: 0;
+}
+.tt-h2, h2 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-24);
+  line-height: 1.3;
+  color: var(--fg-1);
+  margin: 0;
+}
+.tt-h3, h3 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-20);
+  line-height: 1.3;
+  color: var(--fg-1);
+  margin: 0;
+}
+.tt-h4, h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-18);
+  line-height: 1.5;
+  color: var(--fg-1);
+  margin: 0;
+}
+.tt-eyebrow {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-12);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tt-indigo);
+}
+
+/* --- Body --- */
+.tt-body-lg, p.tt-lg {
+  font-size: var(--fs-16);
+  line-height: var(--lh-normal);
+  color: var(--fg-1);
+}
+.tt-body, p {
+  font-size: var(--fs-14);
+  line-height: var(--lh-normal);
+  color: var(--fg-1);
+  margin: 0;
+}
+.tt-body-sm {
+  font-size: var(--fs-12);
+  line-height: var(--lh-normal);
+  color: var(--fg-3);
+}
+.tt-caption {
+  font-size: var(--fs-12);
+  line-height: 1.33;
+  color: var(--fg-3);
+}
+
+/* --- Links --- */
+.tt-link, a.tt-link {
+  color: var(--tt-indigo);
+  text-decoration: none;
+  font-weight: var(--fw-bold);
+  transition: color var(--dur-base) var(--ease-standard);
+}
+.tt-link:hover { color: var(--tt-indigo-dark); }
+.tt-link--quiet {
+  color: var(--fg-3);
+  font-weight: var(--fw-regular);
+}
+.tt-link--quiet:hover { color: var(--tt-indigo); }
+
+/* --- Precios --- */
+.tt-price {
+  font-weight: var(--fw-extrabold);
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--tt-indigo);
+}
+.tt-price--lg {
+  font-weight: var(--fw-extrabold);
+  font-size: 32px;
+  line-height: 1.1;
+  color: var(--tt-indigo);
+}
+.tt-price__alt {
+  font-size: var(--fs-14);
+  font-weight: var(--fw-regular);
+  color: var(--fg-3);
+  margin-left: 6px;
+}
+
+/* --- Código --- */
+code, .tt-code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--bg-strip);
+  padding: 2px 6px;
+  border-radius: var(--r-4);
+  color: var(--fg-1);
+}
+
+
+/* ============================================================
+   BOTONES
+   Solo existen 2 colores de CTA: índigo (acción principal) y mint (solo "Publicar").
+   ============================================================ */
+.tt-btn {
+  font-family: var(--font-sans);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-regular);
+  line-height: 24px;
+  border: 0;
+  border-radius: var(--r-4);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 24px;
+  height: 36px;
+  text-decoration: none;
+  transition:
+    background-color var(--dur-base) var(--ease-standard),
+    color var(--dur-base) var(--ease-standard),
+    transform var(--dur-quick) var(--ease-standard);
+}
+.tt-btn:active  { transform: scale(0.98); }
+.tt-btn:disabled, .tt-btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
+
+/* Variantes */
+.tt-btn--indigo  { background: var(--tt-indigo); color: var(--tt-white); }
+.tt-btn--indigo:hover  { background: var(--tt-indigo-dark); }
+
+.tt-btn--mint    { background: var(--tt-mint); color: var(--tt-indigo); }
+.tt-btn--mint:hover    { background: var(--tt-mint-dark); }
+
+.tt-btn--outline { background: var(--tt-white); color: var(--tt-indigo); box-shadow: 0 0 0 1px var(--tt-indigo) inset; font-weight: var(--fw-bold); }
+.tt-btn--outline:hover { background: var(--tt-indigo-50); }
+
+.tt-btn--ghost   { background: transparent; color: var(--tt-indigo); font-weight: var(--fw-bold); padding: 6px 10px; }
+.tt-btn--ghost:hover   { background: var(--tt-indigo-50); }
+
+.tt-btn--white   { background: var(--tt-white); color: var(--tt-indigo); font-weight: var(--fw-bold); }
+.tt-btn--white:hover   { background: var(--tt-indigo-50); }
+
+.tt-btn--danger  { background: var(--tt-danger); color: var(--tt-white); }
+
+/* Tamaños */
+.tt-btn--sm { font-size: var(--fs-12); padding: 4px 14px; height: 28px; line-height: 20px; }
+.tt-btn--lg { font-size: var(--fs-16); padding: 8px 32px; height: 44px; font-weight: var(--fw-bold); }
+
+
+/* ============================================================
+   CHIPS / PILLS
+   ============================================================ */
+.tt-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-12);
+  font-weight: var(--fw-bold);
+  border-radius: var(--r-4);
+  padding: 4px 10px;
+}
+
+/* Chip de filtro aplicado (índigo tint + ×) */
+.tt-chip--filter {
+  background: var(--tt-indigo-50);
+  color: var(--tt-indigo);
+  padding: 4px 8px 4px 10px;
+}
+
+/* Toggle pill (seleccionado/no seleccionado) */
+.tt-chip--toggle {
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  background: var(--tt-white);
+  color: var(--tt-indigo);
+  box-shadow: 0 0 0 1px var(--tt-indigo) inset;
+  padding: 4px 12px;
+}
+.tt-chip--toggle[aria-pressed="true"],
+.tt-chip--toggle.is-active {
+  background: var(--tt-indigo);
+  color: var(--tt-white);
+  box-shadow: none;
+}
+
+/* Flag / badge de estado en tarjetas */
+.tt-chip--flag {
+  background: var(--tt-mint);
+  color: var(--tt-indigo);
+  font-size: 11px;
+  border-radius: var(--r-4);
+}
+.tt-chip--flag--pink { background: var(--tt-pink); color: var(--tt-white); }
+.tt-chip--flag--warning { background: var(--tt-warning); color: var(--tt-ink); }
+.tt-chip--flag--success { background: var(--tt-success); color: var(--tt-white); }
+
+
+/* ============================================================
+   INPUTS / FORMULARIOS
+   ============================================================ */
+.tt-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+.tt-label {
+  font-size: var(--fs-12);
+  font-weight: var(--fw-semibold);
+  color: var(--fg-2);
+}
+.tt-input,
+.tt-select {
+  font-family: var(--font-sans);
+  font-size: var(--fs-14);
+  color: var(--fg-1);
+  background: var(--tt-white);
+  border: 1px solid var(--tt-divider);
+  border-radius: var(--r-4);
+  height: 40px;
+  padding: 0 var(--sp-12);
+  width: 100%;
+  transition: border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);
+  appearance: none;
+  outline: none;
+}
+.tt-input::placeholder { color: var(--tt-muted); }
+.tt-input:focus,
+.tt-select:focus {
+  border-color: var(--tt-indigo);
+  box-shadow: 0 0 0 3px rgba(50, 0, 193, 0.12);
+}
+.tt-input--error { border-color: var(--tt-danger); }
+.tt-input--error:focus { box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.12); }
+
+.tt-helper { font-size: var(--fs-12); color: var(--fg-3); }
+.tt-helper--error { color: var(--tt-danger); }
+
+
+/* ============================================================
+   TARJETA DE PROPIEDAD (Property Card)
+   ============================================================ */
+.tt-card {
+  background: var(--bg-surface);
+  border-radius: var(--r-10);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: box-shadow var(--dur-base) var(--ease-standard);
+}
+.tt-card:hover { box-shadow: var(--shadow-card-hover); }
+
+.tt-card__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.tt-card__body {
+  padding: var(--sp-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+
+.tt-card__location {
+  font-size: var(--fs-12);
+  font-weight: var(--fw-bold);
+  color: var(--fg-3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tt-card__type {
+  font-size: var(--fs-12);
+  color: var(--fg-3);
+}
+
+.tt-card__title {
+  font-size: var(--fs-14);
+  font-weight: var(--fw-bold);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+.tt-card__specs {
+  display: flex;
+  gap: var(--sp-12);
+  font-size: var(--fs-12);
+  color: var(--fg-3);
+}
+
+.tt-card__spec {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.tt-card__footer {
+  padding: var(--sp-12) var(--sp-16);
+  border-top: var(--border-line-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.tt-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-h);
+  background: var(--tt-white);
+  box-shadow: var(--shadow-header);
+  display: flex;
+  align-items: center;
+}
+
+.tt-header__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 var(--sp-24);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-24);
+}
+
+/* Barra de navegación secundaria (sub-nav índigo) */
+.tt-subnav {
+  background: var(--tt-indigo);
+  height: var(--secondary-nav-h);
+  display: flex;
+  align-items: center;
+}
+
+.tt-subnav__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 var(--sp-24);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+}
+
+.tt-subnav__link {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  padding: var(--sp-8) var(--sp-12);
+  border-radius: var(--r-4);
+  transition: color var(--dur-base) var(--ease-standard), background var(--dur-base) var(--ease-standard);
+}
+.tt-subnav__link:hover { color: var(--tt-white); background: rgba(255,255,255,0.1); }
+.tt-subnav__link.is-active { color: var(--tt-white); font-weight: var(--fw-bold); }
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.tt-footer {
+  background: var(--tt-indigo-darker);
+  color: var(--tt-white);
+  padding: var(--sp-48) 0 var(--sp-32);
+  font-size: var(--fs-14);
+}
+
+.tt-footer__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--sp-24);
+}
+
+.tt-footer__cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--sp-32);
+  margin-bottom: var(--sp-40);
+}
+
+.tt-footer__heading {
+  font-size: var(--fs-12);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin: 0 0 var(--sp-16);
+}
+
+.tt-footer__link {
+  display: block;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: var(--fs-14);
+  margin-bottom: var(--sp-8);
+  transition: color var(--dur-base) var(--ease-standard);
+}
+.tt-footer__link:hover { color: var(--tt-white); }
+
+.tt-footer__bottom {
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: var(--sp-24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-16);
+}
+
+.tt-footer__legal {
+  font-size: var(--fs-12);
+  color: rgba(255,255,255,0.5);
+}
+
+.tt-footer__social {
+  display: flex;
+  gap: var(--sp-16);
+}
+.tt-footer__social a {
+  color: rgba(255,255,255,0.6);
+  transition: color var(--dur-base) var(--ease-standard);
+}
+.tt-footer__social a:hover { color: var(--tt-white); }
+
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+.tt-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--sp-24);
+  width: 100%;
+}
+
+.tt-section {
+  padding: var(--sp-64) 0;
+}
+
+.tt-divider {
+  border: none;
+  border-top: var(--border-line);
+  margin: 0;
+}
+
+/* Grid de propiedades (3 columnas desktop) */
+.tt-property-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-16);
+}
+@media (max-width: 900px) { .tt-property-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .tt-property-grid { grid-template-columns: 1fr; } }
+
+/* Sidebar de filtros */
+.tt-filter-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   HERO / PROMO CARDS
+   ============================================================ */
+.tt-hero {
+  background: var(--tt-indigo);
+  color: var(--tt-white);
+  border-radius: var(--r-10);
+  padding: var(--sp-48) var(--sp-40);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero con foto — usa multiply overlay */
+.tt-hero--photo {
+  background-color: var(--tt-ink);
+}
+.tt-hero--photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(52, 58, 64, 0.75);
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+.tt-hero--photo > * { position: relative; z-index: 2; }
+
+.tt-hero__title {
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-32);
+  line-height: var(--lh-snug);
+  color: var(--tt-white);
+  text-shadow: var(--shadow-text-protect);
+  margin: 0 0 var(--sp-16);
+}
+
+.tt-hero__subtitle {
+  font-size: var(--fs-16);
+  color: rgba(255,255,255,0.85);
+  margin: 0 0 var(--sp-24);
+}
+
+
+/* ============================================================
+   BADGES DE ESTADO
+   ============================================================ */
+.tt-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: var(--fw-bold);
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+}
+.tt-badge--success { background: rgba(35, 173, 99, 0.12); color: var(--tt-success); }
+.tt-badge--warning { background: rgba(255, 167, 38, 0.15); color: #b86800; }
+.tt-badge--danger  { background: rgba(244, 67, 54, 0.12);  color: var(--tt-danger); }
+.tt-badge--info    { background: var(--tt-indigo-50);       color: var(--tt-indigo); }
+.tt-badge--new     { background: var(--tt-mint);            color: var(--tt-indigo); }
+
+
+/* ============================================================
+   DROPDOWN / MENÚ
+   ============================================================ */
+.tt-dropdown {
+  background: var(--tt-white);
+  border-radius: var(--r-4);
+  box-shadow: var(--shadow-dropdown);
+  overflow: hidden;
+  min-width: 180px;
+}
+
+.tt-dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+  padding: var(--sp-12) var(--sp-16);
+  font-size: var(--fs-14);
+  color: var(--fg-1);
+  cursor: pointer;
+  transition: background var(--dur-quick) var(--ease-standard);
+  border-bottom: var(--border-line);
+  text-decoration: none;
+}
+.tt-dropdown__item:last-child { border-bottom: none; }
+.tt-dropdown__item:hover { background: var(--bg-strip); }
+
+
+/* ============================================================
+   SPINNER
+   ============================================================ */
+@keyframes tt-spin { to { transform: rotate(360deg); } }
+.tt-spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2.5px solid var(--tt-indigo-150);
+  border-top-color: var(--tt-indigo);
+  border-radius: 50%;
+  animation: tt-spin 0.7s linear infinite;
+}
+.tt-spinner--sm { width: 16px; height: 16px; border-width: 2px; }
+
+
+/* ============================================================
+   ACCESIBILIDAD
+   ============================================================ */
+:focus-visible {
+  outline: 3px solid rgba(50, 0, 193, 0.4);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

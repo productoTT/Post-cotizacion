@@ -1,0 +1,155 @@
+/* ============================================================
+   TOCTOC Design System — Typography
+   ------------------------------------------------------------
+   Font loading, family stacks, weights, size scale, and
+   line heights. Nunito is the sole brand typeface.
+   Font files live at ../fonts/ relative to this file.
+   ============================================================ */
+
+/* ---------- Web Fonts (Nunito, all 16 weights) ---------- */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url("../fonts/Nunito-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: italic;
+  font-weight: 200;
+  font-display: swap;
+  src: url("../fonts/Nunito-ExtraLightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../fonts/Nunito-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../fonts/Nunito-LightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Nunito-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Nunito-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/Nunito-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/Nunito-MediumItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/Nunito-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/Nunito-SemiBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Nunito-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Nunito-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/Nunito-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/Nunito-ExtraBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../fonts/Nunito-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../fonts/Nunito-BlackItalic.ttf") format("truetype");
+}
+
+/* ---------- Tokens ---------- */
+:root {
+
+  /* ----- Family stacks ----- */
+  --font-sans:           "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:           "Roboto Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* ----- Weights ----- */
+  --fw-light:            300;
+  --fw-regular:          400;
+  --fw-medium:           500;
+  --fw-semibold:         600;
+  --fw-bold:             700;
+  --fw-extrabold:        800;
+
+  /* ----- Type scale (px values match the Figma frequency analysis) ----- */
+  --fs-12:               12px;  /* tiny meta / breadcrumb */
+  --fs-14:               14px;  /* body sm / form fields / nav */
+  --fs-16:               16px;  /* body / buttons */
+  --fs-18:               18px;  /* section header */
+  --fs-20:               20px;  /* eyebrow / large body */
+  --fs-24:               24px;  /* sub-display */
+  --fs-30:               30px;  /* page title (mobile) */
+  --fs-32:               32px;  /* page title (desktop) */
+  --fs-50:               50px;  /* hero number */
+  --fs-64:               64px;  /* hero display */
+
+  /* ----- Line heights ----- */
+  --lh-tight:            1.1;
+  --lh-snug:             1.17;   /* ExtraBold display */
+  --lh-normal:           1.5;    /* default for body */
+  --lh-flat:             1;      /* dense numeric labels */
+}

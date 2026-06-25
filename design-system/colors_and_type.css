@@ -1,0 +1,151 @@
+/*
+ * Compatibility entry point.
+ * New consumers should import index.css.
+ * Kept temporarily for existing previews and product kits.
+ *
+ * Source of truth: Figma "TT Design MD2" (Base page).
+ * Brand colors derived from highest-frequency fills in the file
+ * (indigo primary 50/0/193 — 1,521 instances; mint 55/255/219 —
+ * 508 instances; light-blue tints 203/219/246, etc).
+ */
+
+@import "./index.css";
+
+/* ============================================================
+   BASE / SEMANTIC ELEMENTS
+   ------------------------------------------------------------
+   Utility CSS classes that depend on the tokens above.
+   These stay here to preserve backward compatibility with
+   all existing consumers (previews, product kits, email).
+   ============================================================ */
+html, body {
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- Display & headings ---------- */
+.tt-display-xl {           /* "1500" stat-style display */
+  font-family: var(--font-sans);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-64);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.02em;
+  color: var(--fg-1);
+}
+.tt-display-lg {           /* hero numeric (UF 12.345) */
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-50);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.015em;
+  color: var(--tt-indigo);
+}
+.tt-h1, h1 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-32);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+  margin: 0;
+}
+.tt-h2, h2 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-24);
+  line-height: 1.3;
+  color: var(--fg-1);
+  margin: 0;
+}
+.tt-h3, h3 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-20);
+  line-height: 1.3;
+  color: var(--fg-1);
+  margin: 0;
+}
+.tt-h4, h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-18);
+  line-height: 1.5;
+  color: var(--fg-1);
+  margin: 0;
+}
+.tt-eyebrow {              /* small caps-like label */
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-12);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tt-indigo);
+}
+
+/* ---------- Body ---------- */
+.tt-body-lg, p.tt-lg {
+  font-size: var(--fs-16);
+  line-height: var(--lh-normal);
+  color: var(--fg-1);
+}
+.tt-body, p {
+  font-size: var(--fs-14);
+  line-height: var(--lh-normal);
+  color: var(--fg-1);
+  margin: 0;
+}
+.tt-body-sm {
+  font-size: var(--fs-12);
+  line-height: var(--lh-normal);
+  color: var(--fg-3);
+}
+.tt-caption {
+  font-size: var(--fs-12);
+  line-height: 1.33;
+  color: var(--fg-3);
+}
+
+/* ---------- Links ---------- */
+.tt-link, a.tt-link {
+  color: var(--tt-indigo);
+  text-decoration: none;
+  font-weight: var(--fw-bold);
+  transition: color var(--dur-base) var(--ease-standard);
+}
+.tt-link:hover { color: var(--tt-indigo-dark); }
+.tt-link--quiet {
+  color: var(--fg-3);
+  font-weight: var(--fw-regular);
+}
+.tt-link--quiet:hover { color: var(--tt-indigo); }
+
+/* ---------- Price specimen (used on listing & detail) ---------- */
+.tt-price {
+  font-weight: var(--fw-extrabold);
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--tt-indigo);
+}
+.tt-price--lg {
+  font-weight: var(--fw-extrabold);
+  font-size: 32px;
+  line-height: 1.1;
+  color: var(--tt-indigo);
+}
+.tt-price__alt {              /* "/ $ 195,992,864" */
+  font-size: var(--fs-14);
+  font-weight: var(--fw-regular);
+  color: var(--fg-3);
+  margin-left: 6px;
+}
+
+/* ---------- Code / mono (rare; used for API docs) ---------- */
+code, .tt-code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--bg-strip);
+  padding: 2px 6px;
+  border-radius: var(--r-4);
+  color: var(--fg-1);
+}

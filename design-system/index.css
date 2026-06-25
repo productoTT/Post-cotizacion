@@ -1,0 +1,22 @@
+/* ============================================================
+   TOCTOC Design System — Token index
+   ------------------------------------------------------------
+   Recommended entry point for new consumers.
+   Import this file to get all official design tokens.
+
+   Rules:
+   - Do NOT define tokens directly in this file.
+   - All token definitions live in the individual modules below.
+   - Import order matters: semantic.css and borders.css depend
+     on colors.css being resolved first.
+   ============================================================ */
+
+@import "./typography.css";
+@import "./colors.css";
+@import "./semantic.css";
+@import "./spacing.css";
+@import "./radii.css";
+@import "./borders.css";
+@import "./shadows.css";
+@import "./motion.css";
+@import "./layout.css";
